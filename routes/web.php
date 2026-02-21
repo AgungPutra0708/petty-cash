@@ -37,4 +37,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/customer/{customer}', [CustomerController::class, 'update'])->name('customer.update');
     Route::delete('/customer/{customer}', [CustomerController::class, 'destroy'])->name('customer.destroy');
     Route::get('/customer/get-last-number/{customer}', [CustomerController::class, 'getLastNumber']);
+    
+    Route::get('/stock', [CustomerController::class, 'index'])->name('stock.index');
+    Route::get('/stock/get-data', [CustomerController::class, 'getDataCustomer'])->name('stock.data');
+    Route::get('/stock/create', [CustomerController::class, 'create'])->name('stock.create');
+    Route::post('/stock', [CustomerController::class, 'store'])->name('stock.store');
+    Route::get('/stock/{stock}/edit', [CustomerController::class, 'edit'])->name('stock.edit');
+    Route::put('/stock/{stock}', [CustomerController::class, 'update'])->name('stock.update');
+    Route::delete('/stock/{stock}', [CustomerController::class, 'destroy'])->name('stock.destroy');
+    Route::get('/stock/get-last-number/{stock}', [CustomerController::class, 'getLastNumber']);
 });

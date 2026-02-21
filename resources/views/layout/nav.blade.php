@@ -93,12 +93,23 @@
                 <li class="{{ str_starts_with($route, 'bilyet') ? 'active' : '' }}">
                     <a href="{{ route('bilyet.index') }}">
                         <i class="fas fa-dollar-sign"></i>
-                        <span class="bot-line"></span>Bilyet</a>
+                        <span class="bot-line"></span>
+                        Bilyet
+                    </a>
+                </li>
+                <li class="{{ str_starts_with($route, 'stock') ? 'active' : '' }}">
+                    <a href="{{ route('stock.index') }}">
+                        <i class="fas fa-boxes"></i>
+                        <span class="bot-line"></span>
+                        Stock
+                    </a>
                 </li>
                 <li class="{{ str_starts_with($route, 'customer') ? 'active' : '' }}">
                     <a href="{{ route('customer.index') }}">
                         <i class="fas fa-users"></i>
-                        <span class="bot-line"></span>Customer</a>
+                        <span class="bot-line"></span>
+                        Customer
+                    </a>
                 </li>
             </ul>
         </div>
