@@ -2,7 +2,18 @@
 @section('title', 'Tambah Bilyet')
 @section('content')
     <div class="main-content">
-        <div class="section__content section__content--p30">
+        <section class="p-t-10 p-l-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title-5 m-b-35">Tambah Bilyet</h3>
+                        <hr class="line-seprate">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section__content section__content--p30 p-t-50 p-b-50">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -74,7 +85,7 @@
                                     </div>
 
                                     <div class="form-actions form-group">
-                                        <button type="submit" class="btn btn-primary btn-sm">
+                                        <button type="submit" class="btn au-btn--pink-pastel btn-sm">
                                             <i class="fa fa-save"></i> Simpan
                                         </button>
                                         <a href="{{ route('bilyet.index') }}" class="btn btn-secondary btn-sm">

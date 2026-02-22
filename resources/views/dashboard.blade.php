@@ -2,7 +2,7 @@
 @section('title', 'Dashboard')
 @section('content')
     <!-- WELCOME-->
-    <section class="welcome p-t-10">
+    <section class="p-t-10 p-l-10">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

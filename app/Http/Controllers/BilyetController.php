@@ -77,7 +77,8 @@ class BilyetController extends Controller
     // EDIT
     public function edit(Bilyet $bilyet)
     {
-        return view('bilyet.edit', compact('bilyet'));
+        $customers = Customer::all();
+        return view('bilyet.edit', compact('bilyet', 'customers'));
     }
 
     // UPDATE

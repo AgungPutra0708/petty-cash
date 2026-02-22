@@ -2,15 +2,25 @@
 @section('title', 'Bilyet')
 @section('content')
     <div class="main-content">
-        <div class="section__content section__content--p30">
+        <section class="p-t-10 p-l-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title-5 m-b-35">Bilyet</h3>
+                        <hr class="line-seprate">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section__content section__content--p30 p-t-50 p-b-50">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
-                        <h3 class="title-5 m-b-35">Bilyet</h3>
                         <div class="table-data__tool" style="float: right;">
                             <div class="table-data__tool-right">
-                                <a class="au-btn au-btn-icon au-btn--green au-btn--small"
+                                <a class="au-btn au-btn-icon au-btn--pink-pastel au-btn--small"
                                     href="{{ route('bilyet.create') }}">
                                     <i class="zmdi zmdi-plus"></i>add bilyet</a>
                             </div>

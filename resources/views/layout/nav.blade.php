@@ -34,7 +34,7 @@
                 <div class="account-wrap">
                     <div class="account-item account-item--style2 clearfix js-item-menu">
                         <div class="image">
-                            <img src="{{ asset('assets/images/icon/avatar-01.jpg') }}" alt="{{ Auth::user()->name }}" />
+                            <img src="{{ asset('assets/images/icon/avatar.jpeg') }}" alt="{{ Auth::user()->name }}" />
                         </div>
                         <div class="content">
                             <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
@@ -43,7 +43,7 @@
                             <div class="info clearfix">
                                 <div class="image">
                                     <a href="{{ route('dashboard.index') }}">
-                                        <img src="{{ asset('assets/images/icon/avatar-01.jpg') }}"
+                                        <img src="{{ asset('assets/images/icon/avatar.jpeg') }}"
                                             alt="{{ Auth::user()->name }}" />
                                     </a>
                                 </div>
@@ -109,7 +109,7 @@
         <div class="account-wrap">
             <div class="account-item account-item--style2 clearfix js-item-menu">
                 <div class="image">
-                    <img src="{{ asset('assets/images/icon/avatar-01.jpg') }}" alt="{{ Auth::user()->name }}" />
+                    <img src="{{ asset('assets/images/icon/avatar.jpeg') }}" alt="{{ Auth::user()->name }}" />
                 </div>
                 <div class="content">
                     <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
@@ -118,7 +118,7 @@
                     <div class="info clearfix">
                         <div class="image">
                             <a href="{{ route('dashboard.index') }}">
-                                <img src="{{ asset('assets/images/icon/avatar-01.jpg') }}"
+                                <img src="{{ asset('assets/images/icon/avatar.jpeg') }}"
                                     alt="{{ Auth::user()->name }}" />
                             </a>
                         </div>
@@ -130,8 +130,9 @@
                         </div>
                     </div>
                     <div class="account-dropdown__footer">
-                        <a href="#" data-toggle="modal" data-target="#logoutModal" id="logoutButton">
-                            <i class="zmdi zmdi-power"></i>Logout</a>
+                        <a href="#" data-toggle="modal" data-target="#logoutModal" id="logoutButtonMobile">
+                            <i class="zmdi zmdi-power"></i>Logout
+                        </a>
                     </div>
                 </div>
             </div>

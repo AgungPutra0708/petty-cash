@@ -2,7 +2,18 @@
 @section('title', 'Tambah Customer')
 @section('content')
     <div class="main-content">
-        <div class="section__content section__content--p30">
+        <section class="p-t-10 p-l-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title-5 m-b-35">Tambah Customer</h3>
+                        <hr class="line-seprate">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section__content section__content--p30 p-t-50 p-b-50">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -30,22 +41,31 @@
                                         <input type="text" name="nama_customer"
                                             class="form-control @error('nama_customer') is-invalid @enderror"
                                             value="{{ old('nama_customer') }}">
+                                        @error('nama_customer')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         <label>Alamat</label>
                                         <textarea name="alamat" rows="3" class="form-control">{{ old('alamat') }}</textarea>
+                                        @error('alamat')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         <label>Phone</label>
                                         <input type="text" name="phone"
                                             class="form-control @error('phone') is-invalid @enderror"
-                                            value="{{ old('phone') }}">
+                                            value="{{ old('phone') }}" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                        @error('phone')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-actions form-group">
-                                        <button type="submit" class="btn btn-primary btn-sm">
+                                        <button type="submit" class="btn au-btn--pink-pastel btn-sm">
                                             <i class="fa fa-save"></i> Simpan
                                         </button>
                                         <a href="{{ route('customer.index') }}" class="btn btn-secondary btn-sm">

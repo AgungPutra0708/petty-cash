@@ -24,6 +24,13 @@ Primary use:	Open Source
 # Text Color (text): #666666
 # Text Color Deep (Text, title): #333333
 
+# NEW STRIP PALETTE (from left to right):
+#1: #F2BAC5 - Light Pink
+#2: #F38EA9 - Pastel Pink
+#3: #F1A5BA - Soft Pink
+#4: #EF5C93 - Darker Pink/Magenta
+#5: #F2DCCF - Soft Cream
+
 ------------------------------------------------------------------*/
 /*------------------------------------------------------------------
 [Typography]
@@ -75,6 +82,7 @@ button {
 img {
     max-width: 100%;
     height: auto;
+    margin-top: -7px;
 }
 
 p {
@@ -95,6 +103,12 @@ p {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+}
+
+.page-item.active .page-link {
+    background: #ef5c93;
+    border-color: #ef5c93;
+    color: #fff;
 }
 
 /* ----- Typography ----- */
@@ -276,15 +290,11 @@ section {
 /*Page Objects*/
 .page-wrapper {
     overflow: hidden;
-    background: #e5e5e5;
-    padding-bottom: 8vh;
 }
 
 @media (max-width: 991px) {
     .page-wrapper {
     overflow: auto;
-    background: #e5e5e5;
-    padding-bottom: 12vh;
 }
 }
 .page-container {
@@ -490,6 +500,51 @@ section {
 .au-btn--green:hover {
     background: #59bd60;
 }
+
+/* ----- New Color Buttons using the Strip Palette ----- */
+.au-btn--pink-light {
+    background: #F2BAC5;
+    color: #333;
+}
+.au-btn--pink-light:hover {
+    background: #e6aeb9;
+    color: #333;
+}
+
+.au-btn--pink-pastel {
+    background: #F38EA9;
+    color: #fff;
+}
+.au-btn--pink-pastel:hover {
+    background: #e2849e;
+}
+
+.au-btn--pink-soft {
+    background: #F1A5BA;
+    color: #333;
+}
+.au-btn--pink-soft:hover {
+    background: #e09bae;
+    color: #333;
+}
+
+.au-btn--pink-magenta {
+    background: #EF5C93;
+    color: #fff;
+}
+.au-btn--pink-magenta:hover {
+    background: #da5284;
+}
+
+.au-btn--cream-soft {
+    background: #F2DCCF;
+    color: #333;
+}
+.au-btn--cream-soft:hover {
+    background: #e2ccbf;
+    color: #333;
+}
+/* --------------------------------------------- */
 
 .au-btn-plus {
     position: absolute;
@@ -1797,7 +1852,7 @@ section {
 }
 
 .header-mobile-2 {
-    background: #4272d7;
+    background: #ef5c93;
     position: static;
 }
 
@@ -2573,7 +2628,7 @@ section {
 }
 
 .header-desktop3 {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ef5c93;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -2613,7 +2668,7 @@ section {
 }
 
 .header-desktop3 .header-button-item {
-    color: #ccc;
+    color: #f2bac5;
 }
 
 .header3-wrap {
@@ -2686,7 +2741,7 @@ section {
 .header__navbar ul li a {
     display: block;
     font-size: 16px;
-    color: #ccc;
+    color: #f2bac5;
     padding: 25px 30px;
     border-left: 1px solid rgba(255, 255, 255, 0.102);
 }
@@ -2850,7 +2905,7 @@ section {
     position: absolute;
     width: 100%;
     height: 3px;
-    background: #4272d7;
+    background: #ef5c93;
     left: 0;
     bottom: 0;
     opacity: 0;
@@ -2917,7 +2972,7 @@ section {
 
 .account-item--style2 .content a {
     font-size: 16px;
-    color: #ccc;
+    color: #f2bac5;
     font-weight: 500;
 }
 
@@ -4485,7 +4540,8 @@ section {
 
 .table-data2.table thead th {
     font-size: 12px;
-    color: #555;
+    background-color: #ef5c93;
+    color: #fff;
     text-transform: uppercase;
     border: none;
     font-weight: 600;
@@ -4552,6 +4608,10 @@ section {
 .table-data2 .spacer {
     height: 5px;
     background: transparent;
+}
+
+.dataTables_wrapper .dataTables_length select{
+    width: 50px!important;
 }
 
 .tr-shadow {
@@ -4878,7 +4938,7 @@ section {
 }
 
 .au-breadcrumb3 .au-breadcrumb__list .active a:hover {
-    color: #ccc;
+    color: #f2bac5;
 }
 
 .line-seprate {
@@ -5034,7 +5094,7 @@ section {
 /* ----- Statistic 2 ----- */
 .statistic2 {
     padding-top: 50px;
-    height: 55vh;
+    height: 65vh;
 }
 
 .statistic2 .statistic__item {
@@ -14612,6 +14672,23 @@ section {
     background: #4dbd74;
 }
 
+/* Background baru dengan palet strip */
+.bg-strip-1 {
+    background: #F2BAC5;
+}
+.bg-strip-2 {
+    background: #F38EA9;
+}
+.bg-strip-3 {
+    background: #F1A5BA;
+}
+.bg-strip-4 {
+    background: #EF5C93;
+}
+.bg-strip-5 {
+    background: #F2DCCF;
+}
+
 /*Image*/
 .img-radius {
     -webkit-border-radius: 5px;
@@ -14648,7 +14725,7 @@ section {
 
 /* CSS untuk footer alternatif */
 .footer {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ef5c93;
     color: #fff;
     padding: 25px 0;
     position: relative;
