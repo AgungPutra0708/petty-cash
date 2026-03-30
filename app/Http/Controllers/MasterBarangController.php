@@ -47,15 +47,21 @@ class MasterBarangController extends Controller
         $request->validate([
             'nomor_barang' => 'required|string|max:255|unique:barangs,nomor_barang',
             'nama_barang' => 'required|string|max:255',
-            'alamat' => 'nullable|string|max:500',
-            'phone' => 'required|string|max:255',
+            'description' => 'nullable|string|max:500'
         ]);
+
+        $barang = Barang::where('nomor_barang', $request->nomor_barang)->first();
+
+        if ($barang) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['nomor_barang' => 'Nomor barang sudah ada']);
+        }
 
         Barang::create([
             'nomor_barang' => $request->nomor_barang,
             'name' => $request->nama_barang,
-            'address' => $request->alamat,
-            'phone' => $request->phone,
+            'description' => $request->description,
         ]);
 
         return redirect()->route('master-barang.index')
@@ -74,15 +80,21 @@ class MasterBarangController extends Controller
         $request->validate([
             'nomor_barang' => 'required|string|max:255|unique:barangs,nomor_barang,' . $barang->id,
             'nama_barang' => 'required|string|max:255',
-            'alamat' => 'nullable|string|max:500',
-            'phone' => 'required|string|max:255',
+            'description' => 'nullable|string|max:500',
         ]);
+
+        $existingBarang = Barang::where('nomor_barang', $request->nomor_barang)->first();
+        
+        if ($existingBarang && $existingBarang->id !== $barang->id) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['nomor_barang' => 'Nomor barang sudah ada']);
+        }
 
         $barang->update([
             'nomor_barang' => $request->nomor_barang,
             'name' => $request->nama_barang,
-            'address' => $request->alamat,
-            'phone' => $request->phone,
+            'description' => $request->description,
         ]);
 
         return redirect()->route('master-barang.index')

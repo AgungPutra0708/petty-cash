@@ -80,6 +80,26 @@
                                             <li class="list-inline-item active">@yield('title')</li>
                                         @endif
 
+                                        {{-- Master Barang --}}
+                                        @if (str_starts_with($route, 'master-barang'))
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item active">
+                                                <a href="{{ route('master-barang.index') }}">Master Barang</a>
+                                            </li>
+                                        @endif
+
+                                        {{-- CREATE --}}
+                                        @if ($route === 'master-barang.create')
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item active">@yield('title')</li>
+                                        @endif
+
+                                        {{-- EDIT --}}
+                                        @if ($route === 'master-barang.edit')
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item active">@yield('title')</li>
+                                        @endif
+
                                         {{-- DASHBOARD --}}
                                         @if ($route === 'dashboard.index')
                                             <li class="list-inline-item seprate"><span>/</span></li>

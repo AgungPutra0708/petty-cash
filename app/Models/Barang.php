@@ -9,7 +9,6 @@ class Barang extends Model
     protected $fillable = [
         'nomor_barang',
         'name',
-        'address',
-        'phone',
+        'description',
     ];
 }

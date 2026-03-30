@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nomor_barang')->unique();
             $table->string('name');
-            $table->text('address')->nullable();
-            $table->string('phone')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

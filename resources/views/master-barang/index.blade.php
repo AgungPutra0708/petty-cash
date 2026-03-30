@@ -2,12 +2,22 @@
 @section('title', 'Master Barang')
 @section('content')
     <div class="main-content">
-        <div class="section__content section__content--p30">
+        <section class="p-t-10 p-l-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title-5 m-b-35">Master Barang</h3>
+                        <hr class="line-seprate">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section__content section__content--p30 p-t-50 p-b-50">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
-                        <h3 class="title-5 m-b-35">Master Barang</h3>
                         <div class="table-data__tool" style="float: right;">
                             <div class="table-data__tool-right">
                                 <a class="au-btn au-btn-icon au-btn--green au-btn--small"
@@ -20,10 +30,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nomor Master Barang</th>
-                                        <th>Nama Master Barang</th>
-                                        <th>Alamat</th>
-                                        <th>No. Telepon</th>
+                                        <th>Nomor Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Description</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -61,12 +70,8 @@
                         name: 'name'
                     },
                     {
-                        data: 'address',
-                        name: 'address'
-                    },
-                    {
-                        data: 'phone',
-                        name: 'phone'
+                        data: 'description',
+                        name: 'description'
                     },
                     {
                         data: 'action',

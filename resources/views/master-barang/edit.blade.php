@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Edit Customer')
+@section('title', 'Edit Master Barang')
 
 @section('content')
     <div class="main-content">
@@ -9,42 +9,35 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Edit Customer</strong>
+                                <strong>Edit Master Barang</strong>
                             </div>
 
                             <div class="card-body card-block">
-                                <form action="{{ route('customer.update', $customer->id) }}" method="POST">
+                                <form action="{{ route('master-barang.update', $barang->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
 
                                     <div class="form-group">
-                                        <label>Nomor Customer</label>
-                                        <input type="text" name="nomor_customer" class="form-control"
-                                            value="{{ old('nomor_customer', $customer->nomor_customer) }}">
+                                        <label>Nomor Barang</label>
+                                        <input type="text" name="nomor_barang" class="form-control"
+                                            value="{{ old('nomor_barang', $barang->nomor_barang) }}">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Nama Customer</label>
-                                        <input type="text" name="nama_customer" class="form-control"
-                                            value="{{ old('nama_customer', $customer->name) }}">
+                                        <label>Nama Barang</label>
+                                        <input type="text" name="nama_barang" class="form-control"
+                                            value="{{ old('nama_barang', $barang->name) }}">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Alamat</label>
-                                        <textarea name="alamat" rows="3" class="form-control">{{ old('alamat', $customer->address) }}</textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Phone</label>
-                                        <input type="text" name="phone"
-                                            class="form-control @error('phone') is-invalid @enderror"
-                                            value="{{ old('phone', $customer->phone) }}">
+                                        <label>Description</label>
+                                        <textarea name="description" rows="3" class="form-control">{{ old('description', $barang->description) }}</textarea>
                                     </div>
 
                                     <button class="btn btn-primary btn-sm">
                                         <i class="fa fa-save"></i> Update
                                     </button>
-                                    <a href="{{ route('customer.index') }}" class="btn btn-secondary btn-sm">
+                                    <a href="{{ route('master-barang.index') }}" class="btn btn-secondary btn-sm">
                                         Kembali
                                     </a>
                                 </form>
