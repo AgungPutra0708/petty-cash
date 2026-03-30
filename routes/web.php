@@ -4,6 +4,7 @@ use App\Http\Controllers\BilyetController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MasterBarangController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -38,6 +39,15 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/customer/{customer}', [CustomerController::class, 'destroy'])->name('customer.destroy');
     Route::get('/customer/get-last-number/{customer}', [CustomerController::class, 'getLastNumber']);
     
+    Route::get('/master-barang', [MasterBarangController::class, 'index'])->name('master-barang.index');
+    Route::get('/master-barang/get-data', [MasterBarangController::class, 'getDataBarang'])->name('master-barang.data');
+    Route::get('/master-barang/create', [MasterBarangController::class, 'create'])->name('master-barang.create');
+    Route::post('/master-barang', [MasterBarangController::class, 'store'])->name('master-barang.store');
+    Route::get('/master-barang/{barang}/edit', [MasterBarangController::class, 'edit'])->name('master-barang.edit');
+    Route::put('/master-barang/{barang}', [MasterBarangController::class, 'update'])->name('master-barang.update');
+    Route::delete('/master-barang/{barang}', [MasterBarangController::class, 'destroy'])->name('master-barang.destroy');
+    Route::get('/master-barang/get-last-number/{barang}', [MasterBarangController::class, 'getLastNumber']);
+
     Route::get('/stock', [CustomerController::class, 'index'])->name('stock.index');
     Route::get('/stock/get-data', [CustomerController::class, 'getDataCustomer'])->name('stock.data');
     Route::get('/stock/create', [CustomerController::class, 'create'])->name('stock.create');

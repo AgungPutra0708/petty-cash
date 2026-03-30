@@ -1,6 +1,6 @@
 <!-- HEADER DESKTOP-->
 @php
-    $route = Route::currentRouteName();
+$route = Route::currentRouteName();
 @endphp
 <header class="header-desktop3 d-none d-lg-block">
     <div class="section__content section__content--p35">
@@ -27,6 +27,19 @@
                         <a href="{{ route('customer.index') }}">
                             <i class="fas fa-users"></i>
                             <span class="bot-line"></span>Customer</a>
+                    </li>
+                    <li class="has-sub {{ str_starts_with($route, 'master-barang') || str_starts_with($route, 'stock') ? 'active' : '' }}">
+                        <a href="#">
+                            <i class="fas fa-desktop"></i>
+                            <span class="bot-line"></span>Stock</a>
+                        <ul class="header3-sub-list list-unstyled">
+                            <li>
+                                <a href="{{ route('master-barang.index') }}">Master Barang</a>
+                            </li>
+                            <li>
+                                <a href="badge.html">Stock Barang</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

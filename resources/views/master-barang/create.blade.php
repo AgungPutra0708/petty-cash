@@ -1,0 +1,65 @@
+@extends('layout.main')
+@section('title', 'Tambah Master Barang')
+@section('content')
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Tambah Master Barang</strong>
+                            </div>
+
+                            <div class="card-body card-block">
+                                <form action="{{ route('master-barang.store') }}" method="POST">
+                                    @csrf
+
+                                    <div class="form-group">
+                                        <label>Nomor Master Barang</label>
+                                        <input type="text" name="nomor_master-barang"
+                                            class="form-control @error('nomor_barang') is-invalid @enderror"
+                                            value="{{ old('nomor_barang') }}">
+                                        @error('nomor_barang')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Nama Master Barang</label>
+                                        <input type="text" name="nama_barang"
+                                            class="form-control @error('nama_barang') is-invalid @enderror"
+                                            value="{{ old('nama_barang') }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Alamat</label>
+                                        <textarea name="alamat" rows="3" class="form-control">{{ old('alamat') }}</textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="text" name="phone"
+                                            class="form-control @error('phone') is-invalid @enderror"
+                                            value="{{ old('phone') }}">
+                                    </div>
+
+                                    <div class="form-actions form-group">
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-save"></i> Simpan
+                                        </button>
+                                        <a href="{{ route('master-barang.index') }}" class="btn btn-secondary btn-sm">
+                                            Kembali
+                                        </a>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
