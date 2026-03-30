@@ -43,7 +43,7 @@
                                         {{-- BILYET --}}
                                         @if (str_starts_with($route, 'bilyet'))
                                             <li class="list-inline-item seprate"><span>/</span></li>
-                                            <li class="list-inline-item">
+                                            <li class="list-inline-item active">
                                                 <a href="{{ route('bilyet.index') }}">Bilyet</a>
                                             </li>
                                         @endif
@@ -63,7 +63,7 @@
                                         {{-- CUSTOMER --}}
                                         @if (str_starts_with($route, 'customer'))
                                             <li class="list-inline-item seprate"><span>/</span></li>
-                                            <li class="list-inline-item">
+                                            <li class="list-inline-item active">
                                                 <a href="{{ route('customer.index') }}">Customer</a>
                                             </li>
                                         @endif

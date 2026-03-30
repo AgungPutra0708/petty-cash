@@ -27,7 +27,30 @@
 <script>
     $(document).ready(function() {
         $('#logoutButton').on('click', function (e) {
+            console.log('clicked');
+            
             $('#logoutModal').modal('show');
         });
+        $('#logoutButtonMobile').on('click', function (e) {
+            console.log('clicked');
+            
+            $('#logoutModal').modal('show');
+        });
+    });
+
+    $(document).on('submit', 'form', function () {
+
+        var $form = $(this);
+
+        if ($form.hasClass('submitted')) {
+            return false;
+        }
+
+        $form.addClass('submitted');
+
+        $form.find('button[type=submit], input[type=submit]')
+            .prop('disabled', true)
+            .html('<i class="fa fa-spinner fa-spin"></i> Processing...');
+
     });
 </script>

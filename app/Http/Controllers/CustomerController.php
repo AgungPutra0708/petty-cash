@@ -48,7 +48,7 @@ class CustomerController extends Controller
             'nomor_customer' => 'required|string|max:255|unique:customers,nomor_customer',
             'nama_customer' => 'required|string|max:255',
             'alamat' => 'nullable|string|max:500',
-            'phone' => 'required|string|max:255',
+            'phone' => 'required|numeric',
         ]);
 
         Customer::create([
@@ -75,7 +75,7 @@ class CustomerController extends Controller
             'nomor_customer' => 'required|string|max:255|unique:customers,nomor_customer,' . $customer->id,
             'nama_customer' => 'required|string|max:255',
             'alamat' => 'nullable|string|max:500',
-            'phone' => 'required|string|max:255',
+            'phone' => 'required|numeric',
         ]);
 
         $customer->update([
