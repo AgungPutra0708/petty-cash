@@ -34,7 +34,7 @@
                                         <textarea name="description" rows="3" class="form-control">{{ old('description', $barang->description) }}</textarea>
                                     </div>
 
-                                    <button class="btn btn-primary btn-sm">
+                                    <button class="btn au-btn--pink-pastel btn-sm" type="submit">
                                         <i class="fa fa-save"></i> Update
                                     </button>
                                     <a href="{{ route('master-barang.index') }}" class="btn btn-secondary btn-sm">

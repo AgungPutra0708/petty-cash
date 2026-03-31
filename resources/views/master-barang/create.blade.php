@@ -49,7 +49,7 @@
                                     </div>
 
                                     <div class="form-actions form-group">
-                                        <button type="submit" class="btn btn-primary btn-sm">
+                                        <button type="submit" class="btn au-btn--pink-pastel btn-sm">
                                             <i class="fa fa-save"></i> Simpan
                                         </button>
                                         <a href="{{ route('master-barang.index') }}" class="btn btn-secondary btn-sm">
