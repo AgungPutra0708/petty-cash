@@ -37,7 +37,7 @@ $route = Route::currentRouteName();
                                 <a href="{{ route('master-barang.index') }}">Master Barang</a>
                             </li>
                             <li>
-                                <a href="badge.html">Stock Barang</a>
+                                <a href="{{ route('stock.index') }}">Stock Barang</a>
                             </li>
                         </ul>
                     </li>
