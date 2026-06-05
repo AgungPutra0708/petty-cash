@@ -8,6 +8,7 @@
     <meta name="description" content="Management System">
     <meta name="author" content="Management System">
     <meta name="keywords" content="Management System">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Title Page-->
     <title>@yield('title', 'Dashboard')</title>
@@ -98,6 +99,70 @@
                                         @if ($route === 'master-barang.edit')
                                             <li class="list-inline-item seprate"><span>/</span></li>
                                             <li class="list-inline-item active">@yield('title')</li>
+                                        @endif
+
+                                        {{-- Pemasukan Barang --}}
+                                        @if (str_starts_with($route, 'pemasukan'))
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item active">
+                                                <a href="{{ route('pemasukan.index') }}">Pemasukan Barang</a>
+                                            </li>
+                                        @endif
+
+                                        {{-- CREATE --}}
+                                        @if ($route === 'pemasukan.create')
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item active">@yield('title')</li>
+                                        @endif
+
+                                        {{-- EDIT --}}
+                                        @if ($route === 'pemasukan.edit')
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item active">@yield('title')</li>
+                                        @endif
+
+                                        {{-- Pengeluaran Barang --}}
+                                        @if (str_starts_with($route, 'pengeluaran'))
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item active">
+                                                <a href="{{ route('pengeluaran.index') }}">Pengeluaran Barang</a>
+                                            </li>
+                                        @endif
+
+                                        {{-- CREATE --}}
+                                        @if ($route === 'pengeluaran.create')
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item active">@yield('title')</li>
+                                        @endif
+
+                                        {{-- EDIT --}}
+                                        @if ($route === 'pengeluaran.edit')
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item active">@yield('title')</li>
+                                        @endif
+
+                                        {{-- History Stock --}}
+                                        @if (str_starts_with($route, 'history-stock'))
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item">
+                                                <a href="{{ route('history-stock.index') }}">Stock Opname</a>
+                                            </li>
+                                            @if (!in_array($route, ['history-stock.index']))
+                                                <li class="list-inline-item seprate"><span>/</span></li>
+                                                <li class="list-inline-item active">@yield('title')</li>
+                                            @endif
+                                        @endif
+
+                                        {{-- Petty Cash --}}
+                                        @if (str_starts_with($route, 'petty-cash'))
+                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item">
+                                                <a href="{{ route('petty-cash.index') }}">Petty Cash</a>
+                                            </li>
+                                            @if (!in_array($route, ['petty-cash.index']))
+                                                <li class="list-inline-item seprate"><span>/</span></li>
+                                                <li class="list-inline-item active">@yield('title')</li>
+                                            @endif
                                         @endif
 
                                         {{-- DASHBOARD --}}

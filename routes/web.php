@@ -5,6 +5,9 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MasterBarangController;
+use App\Http\Controllers\HistoryStockController;
+use App\Http\Controllers\PettyCashController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -48,12 +51,63 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/master-barang/{barang}', [MasterBarangController::class, 'destroy'])->name('master-barang.destroy');
     Route::get('/master-barang/get-last-number/{barang}', [MasterBarangController::class, 'getLastNumber']);
 
-    Route::get('/stock', [CustomerController::class, 'index'])->name('stock.index');
-    Route::get('/stock/get-data', [CustomerController::class, 'getDataCustomer'])->name('stock.data');
-    Route::get('/stock/create', [CustomerController::class, 'create'])->name('stock.create');
-    Route::post('/stock', [CustomerController::class, 'store'])->name('stock.store');
-    Route::get('/stock/{stock}/edit', [CustomerController::class, 'edit'])->name('stock.edit');
-    Route::put('/stock/{stock}', [CustomerController::class, 'update'])->name('stock.update');
-    Route::delete('/stock/{stock}', [CustomerController::class, 'destroy'])->name('stock.destroy');
-    Route::get('/stock/get-last-number/{stock}', [CustomerController::class, 'getLastNumber']);
+    // History Stock Routes
+    Route::get('/history-stock', [HistoryStockController::class, 'index'])->name('history-stock.index');
+    Route::get('/history-stock/get-data', [HistoryStockController::class, 'getDataHistoryStock'])->name('history-stock.data');
+    Route::get('/history-stock/report', [HistoryStockController::class, 'report'])->name('history-stock.report');
+    Route::get('/history-stock/report/data', [HistoryStockController::class, 'getStockSummary'])->name('history-stock.report.data');
+    Route::get('history-stock/export-excel', [HistoryStockController::class, 'exportExcel'])->name('history-stock.export-excel');
+    Route::get('history-stock/export-pdf', [HistoryStockController::class, 'exportPdf'])->name('history-stock.export-pdf');
+
+    // Pemasukan Barang Routes
+    Route::get('/pemasukan', [HistoryStockController::class, 'indexPemasukan'])->name('pemasukan.index');
+    Route::get('/pemasukan/get-data', [HistoryStockController::class, 'getDataPemasukan'])->name('pemasukan.data');
+    Route::get('/pemasukan/create', [HistoryStockController::class, 'createPemasukan'])->name('pemasukan.create');
+    Route::post('/pemasukan', [HistoryStockController::class, 'storePemasukan'])->name('pemasukan.store');
+    Route::get('/pemasukan/{historyStock}/edit', [HistoryStockController::class, 'editPemasukan'])->name('pemasukan.edit');
+    Route::put('/pemasukan/{historyStock}', [HistoryStockController::class, 'updatePemasukan'])->name('pemasukan.update');
+    Route::delete('/pemasukan/{historyStock}', [HistoryStockController::class, 'destroy'])->name('pemasukan.destroy');
+    Route::post('/pemasukan/{historyStock}/submit-approval', [HistoryStockController::class, 'submitApproval'])->name('pemasukan.submit-approval');
+    Route::post('/pemasukan/{historyStock}/approve', [HistoryStockController::class, 'approve'])->name('pemasukan.approve');
+    Route::post('/pemasukan/{historyStock}/reject', [HistoryStockController::class, 'reject'])->name('pemasukan.reject');
+
+    // Pengeluaran Barang Routes
+    Route::get('/pengeluaran', [HistoryStockController::class, 'indexPengeluaran'])->name('pengeluaran.index');
+    Route::get('/pengeluaran/get-data', [HistoryStockController::class, 'getDataPengeluaran'])->name('pengeluaran.data');
+    Route::get('/pengeluaran/create', [HistoryStockController::class, 'createPengeluaran'])->name('pengeluaran.create');
+    Route::post('/pengeluaran', [HistoryStockController::class, 'storePengeluaran'])->name('pengeluaran.store');
+    Route::get('/pengeluaran/{historyStock}/edit', [HistoryStockController::class, 'editPengeluaran'])->name('pengeluaran.edit');
+    Route::put('/pengeluaran/{historyStock}', [HistoryStockController::class, 'updatePengeluaran'])->name('pengeluaran.update');
+    Route::delete('/pengeluaran/{historyStock}', [HistoryStockController::class, 'destroy'])->name('pengeluaran.destroy');
+    Route::post('/pengeluaran/{historyStock}/submit-approval', [HistoryStockController::class, 'submitApproval'])->name('pengeluaran.submit-approval');
+    Route::post('/pengeluaran/{historyStock}/approve', [HistoryStockController::class, 'approve'])->name('pengeluaran.approve');
+    Route::post('/pengeluaran/{historyStock}/reject', [HistoryStockController::class, 'reject'])->name('pengeluaran.reject');
+
+    // User Management Routes (Admin Only)
+    Route::middleware(['role:administrator'])->group(function () {
+        Route::get('/user', [UserController::class, 'index'])->name('user.index');
+        Route::get('/user/get-data', [UserController::class, 'getDataUser'])->name('user.data');
+        Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+        Route::post('/user', [UserController::class, 'store'])->name('user.store');
+        Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
+        Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+    });
+
+    // Petty Cash Routes
+    Route::get('/petty-cash', [PettyCashController::class, 'index'])->name('petty-cash.index');
+    Route::get('/petty-cash/get-data', [PettyCashController::class, 'getDataPettyCash'])->name('petty-cash.data');
+    Route::get('/petty-cash/create', [PettyCashController::class, 'create'])->name('petty-cash.create');
+    Route::post('/petty-cash', [PettyCashController::class, 'store'])->name('petty-cash.store');
+    Route::get('/petty-cash/{pettyCash}', [PettyCashController::class, 'show'])->name('petty-cash.show');
+    Route::get('/petty-cash/{pettyCash}/edit', [PettyCashController::class, 'edit'])->name('petty-cash.edit');
+    Route::put('/petty-cash/{pettyCash}', [PettyCashController::class, 'update'])->name('petty-cash.update');
+    Route::delete('/petty-cash/{pettyCash}', [PettyCashController::class, 'destroy'])->name('petty-cash.destroy');
+    Route::get('/petty-cash/report', [PettyCashController::class, 'report'])->name('petty-cash.report');
+    
+    // Petty Cash Detail Routes
+    Route::post('/petty-cash/{pettyCash}/detail', [PettyCashController::class, 'storeDetail'])->name('petty-cash-detail.store');
+    Route::get('/petty-cash-detail/{detail}/edit', [PettyCashController::class, 'editDetail'])->name('petty-cash-detail.edit');
+    Route::put('/petty-cash-detail/{detail}', [PettyCashController::class, 'updateDetail'])->name('petty-cash-detail.update');
+    Route::delete('/petty-cash-detail/{detail}', [PettyCashController::class, 'destroyDetail'])->name('petty-cash-detail.destroy');
 });

@@ -28,19 +28,40 @@ $route = Route::currentRouteName();
                             <i class="fas fa-users"></i>
                             <span class="bot-line"></span>Customer</a>
                     </li>
-                    <li class="has-sub {{ str_starts_with($route, 'master-barang') || str_starts_with($route, 'stock') ? 'active' : '' }}">
+                    <li class="has-sub {{ str_starts_with($route, 'master-barang') || str_starts_with($route, 'history-stock') || str_starts_with($route, 'pemasukan') || str_starts_with($route, 'pengeluaran') ? 'active' : '' }}">
                         <a href="#">
-                            <i class="fas fa-desktop"></i>
-                            <span class="bot-line"></span>Stock</a>
+                            <i class="fas fa-cubes"></i>
+                            <span class="bot-line"></span>Stock Opname</a>
                         <ul class="header3-sub-list list-unstyled">
                             <li>
                                 <a href="{{ route('master-barang.index') }}">Master Barang</a>
                             </li>
                             <li>
-                                <a href="{{ route('stock.index') }}">Stock Barang</a>
+                                <a href="{{ route('pemasukan.index') }}">Pemasukan Barang</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('pengeluaran.index') }}">Pengeluaran Barang</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('history-stock.index') }}">Riwayat Stok</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('history-stock.report') }}">Laporan Stok</a>
                             </li>
                         </ul>
                     </li>
+                    <li class="{{ str_starts_with($route, 'petty-cash') ? 'active' : '' }}">
+                        <a href="{{ route('petty-cash.index') }}">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span class="bot-line"></span>Petty Cash</a>
+                    </li>
+                    @if(Auth::user()->isAdmin())
+                        <li class="{{ str_starts_with($route, 'user') ? 'active' : '' }}">
+                            <a href="{{ route('user.index') }}">
+                                <i class="fas fa-user-cog"></i>
+                                <span class="bot-line"></span>Manajemen User</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
             <div class="header__tool">
@@ -110,11 +131,18 @@ $route = Route::currentRouteName();
                         Bilyet
                     </a>
                 </li>
-                <li class="{{ str_starts_with($route, 'stock') ? 'active' : '' }}">
-                    <a href="{{ route('stock.index') }}">
-                        <i class="fas fa-boxes"></i>
+                <li class="{{ str_starts_with($route, 'master-barang') || str_starts_with($route, 'history-stock') ? 'active' : '' }}">
+                    <a href="{{ route('history-stock.index') }}">
+                        <i class="fas fa-cubes"></i>
                         <span class="bot-line"></span>
-                        Stock
+                        Stock Opname
+                    </a>
+                </li>
+                <li class="{{ str_starts_with($route, 'petty-cash') ? 'active' : '' }}">
+                    <a href="{{ route('petty-cash.index') }}">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span class="bot-line"></span>
+                        Petty Cash
                     </a>
                 </li>
                 <li class="{{ str_starts_with($route, 'customer') ? 'active' : '' }}">

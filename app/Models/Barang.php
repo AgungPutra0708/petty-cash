@@ -10,5 +10,6 @@ class Barang extends Model
         'nomor_barang',
         'name',
         'description',
+        'qty'
     ];
 }

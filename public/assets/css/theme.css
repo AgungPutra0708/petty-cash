@@ -1,52 +1,3 @@
-/*------------------------------------------------------------------
-[Master Stylesheet]
-
-Project:  CoolAdmin
-Version:	1.0
-Last change:	08/10/2018 [Add Define a table of contents Link]
-Assigned to:	Hau Nguyen
-Primary use:	Open Source
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[LAYOUT]
-
-* body
-    + Header / header
-	+ Page Content / .page-content .name-page
-        + Section Layouts / section .name-section
-        ...
-	+ Footer / footer
-
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-# [Color codes]
-
-# Text Color (text): #666666
-# Text Color Deep (Text, title): #333333
-
-# NEW STRIP PALETTE (from left to right):
-#1: #F2BAC5 - Light Pink
-#2: #F38EA9 - Pastel Pink
-#3: #F1A5BA - Soft Pink
-#4: #EF5C93 - Darker Pink/Magenta
-#5: #F2DCCF - Soft Cream
-
-------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[Typography]
-
-Notes:	decreasing heading by 0.4em with every subsequent heading level
--------------------------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   SETTINGS                          */
-/*-----------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   TOOLS                             */
-/*-----------------------------------------------------*/
-/*-----------------------------------------------------*/
-/*                   GENERIC                           */
-/*-----------------------------------------------------*/
-/* ----- Normalize ----- */
 * {
     margin: 0;
     padding: 0;
@@ -106,8 +57,8 @@ p {
 }
 
 .page-item.active .page-link {
-    background: #ef5c93;
-    border-color: #ef5c93;
+    background: #00A39D;
+    border-color: #00A39D;
     color: #fff;
 }
 
@@ -501,50 +452,21 @@ section {
     background: #59bd60;
 }
 
-/* ----- New Color Buttons using the Strip Palette ----- */
-.au-btn--pink-light {
-    background: #F2BAC5;
-    color: #333;
-}
-.au-btn--pink-light:hover {
-    background: #e6aeb9;
-    color: #333;
+.au-btn--tosca {
+    background: #00A39D;
 }
 
-.au-btn--pink-pastel {
-    background: #F38EA9;
-    color: #fff;
-}
-.au-btn--pink-pastel:hover {
-    background: #e2849e;
+.au-btn--tosca:hover {
+    background: #008a84;
 }
 
-.au-btn--pink-soft {
-    background: #F1A5BA;
-    color: #333;
-}
-.au-btn--pink-soft:hover {
-    background: #e09bae;
-    color: #333;
+.au-btn--secondary {
+    background: #808080;
 }
 
-.au-btn--pink-magenta {
-    background: #EF5C93;
-    color: #fff;
+.au-btn--secondary:hover {
+    background: #767676;
 }
-.au-btn--pink-magenta:hover {
-    background: #da5284;
-}
-
-.au-btn--cream-soft {
-    background: #F2DCCF;
-    color: #333;
-}
-.au-btn--cream-soft:hover {
-    background: #e2ccbf;
-    color: #333;
-}
-/* --------------------------------------------- */
 
 .au-btn-plus {
     position: absolute;
@@ -1852,7 +1774,7 @@ section {
 }
 
 .header-mobile-2 {
-    background: #ef5c93;
+    background: #00A39D;
     position: static;
 }
 
@@ -2628,7 +2550,7 @@ section {
 }
 
 .header-desktop3 {
-    background: #ef5c93;
+    background: #00A39D;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -2740,7 +2662,7 @@ section {
 
 .header__navbar ul li a {
     display: block;
-    font-size: 16px;
+    font-size: 13px;
     color: #f2bac5;
     padding: 25px 30px;
     border-left: 1px solid rgba(255, 255, 255, 0.102);
@@ -2905,7 +2827,7 @@ section {
     position: absolute;
     width: 100%;
     height: 3px;
-    background: #ef5c93;
+    background: #00A39D;
     left: 0;
     bottom: 0;
     opacity: 0;
@@ -4540,7 +4462,7 @@ section {
 
 .table-data2.table thead th {
     font-size: 12px;
-    background-color: #ef5c93;
+    background-color: #00A39D;
     color: #fff;
     text-transform: uppercase;
     border: none;
@@ -14677,7 +14599,7 @@ section {
     background: #F2BAC5;
 }
 .bg-strip-2 {
-    background: #F38EA9;
+    background: #00A39D;
 }
 .bg-strip-3 {
     background: #F1A5BA;
@@ -14725,7 +14647,7 @@ section {
 
 /* CSS untuk footer alternatif */
 .footer {
-    background: #ef5c93;
+    background: #00A39D;
     color: #fff;
     padding: 25px 0;
     position: relative;
