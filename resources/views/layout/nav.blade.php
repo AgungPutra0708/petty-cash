@@ -18,47 +18,57 @@ $route = Route::currentRouteName();
                             <span class="bot-line"></span>
                         </a>
                     </li>
-                    <li class="{{ str_starts_with($route, 'bilyet') ? 'active' : '' }}">
-                        <a href="{{ route('bilyet.index') }}">
-                            <i class="fas fa-dollar-sign"></i>
-                            <span class="bot-line"></span>Bilyet</a>
-                    </li>
-                    <li class="{{ $route === 'customer.index' ? 'active' : '' }}">
-                        <a href="{{ route('customer.index') }}">
-                            <i class="fas fa-users"></i>
-                            <span class="bot-line"></span>Customer</a>
-                    </li>
+                    @if(Auth::user()->isCs() || Auth::user()->isAdmin() || Auth::user()->isCheckerCS() || Auth::user()->isApprover())
+                        <li class="{{ str_starts_with($route, 'bilyet') ? 'active' : '' }}">
+                            <a href="{{ route('bilyet.index') }}">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span class="bot-line"></span>Bilyet</a>
+                        </li>
+                    @endif   
+                    @if(Auth::user()->isCs() || Auth::user()->isAdmin())
+                        <li class="{{ $route === 'customer.index' ? 'active' : '' }}">
+                            <a href="{{ route('customer.index') }}">
+                                <i class="fas fa-users"></i>
+                                <span class="bot-line"></span>Customer</a>
+                        </li>
+                    @endif
+                    @if(Auth::user()->isCs() || Auth::user()->isAdmin() || Auth::user()->isCheckerCS() || Auth::user()->isApprover())
                     <li class="has-sub {{ str_starts_with($route, 'master-barang') || str_starts_with($route, 'history-stock') || str_starts_with($route, 'pemasukan') || str_starts_with($route, 'pengeluaran') ? 'active' : '' }}">
                         <a href="#">
                             <i class="fas fa-cubes"></i>
                             <span class="bot-line"></span>Stock Opname</a>
-                        <ul class="header3-sub-list list-unstyled">
-                            <li>
-                                <a href="{{ route('master-barang.index') }}">Master Barang</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('pemasukan.index') }}">Pemasukan Barang</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('pengeluaran.index') }}">Pengeluaran Barang</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('history-stock.index') }}">Riwayat Stok</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('history-stock.report') }}">Laporan Stok</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="{{ str_starts_with($route, 'petty-cash') ? 'active' : '' }}">
-                        <a href="{{ route('petty-cash.index') }}">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <span class="bot-line"></span>Petty Cash</a>
-                    </li>
+                            <ul class="header3-sub-list list-unstyled">
+                                @if(Auth::user()->isCs() || Auth::user()->isAdmin())
+                                    <li>
+                                        <a href="{{ route('master-barang.index') }}">Master Barang</a>
+                                    </li>
+                                @endif
+                                <li>
+                                    <a href="{{ route('pemasukan.index') }}">Pemasukan Barang</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('pengeluaran.index') }}">Pengeluaran Barang</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('history-stock.index') }}">Riwayat Stok</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('history-stock.report') }}">Laporan Stok</a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                    @if(Auth::user()->isTeller() || Auth::user()->isAdmin() || Auth::user()->isCheckerTeller() || Auth::user()->isApprover())
+                        <li class="{{ str_starts_with($route, 'petty-cash') ? 'active' : '' }}">
+                            <a href="{{ route('petty-cash.index') }}">
+                                <i class="fa fa-credit-card"></i>
+                                <span class="bot-line"></span>Petty Cash</a>
+                        </li>
+                    @endif
                     @if(Auth::user()->isAdmin())
                         <li class="{{ str_starts_with($route, 'user') ? 'active' : '' }}">
                             <a href="{{ route('user.index') }}">
-                                <i class="fas fa-user-cog"></i>
+                                <i class="fa fa-user"></i>
                                 <span class="bot-line"></span>Manajemen User</a>
                         </li>
                     @endif
@@ -68,7 +78,7 @@ $route = Route::currentRouteName();
                 <div class="account-wrap">
                     <div class="account-item account-item--style2 clearfix js-item-menu">
                         <div class="image">
-                            <img src="{{ asset('assets/images/icon/avatar.jpeg') }}" alt="{{ Auth::user()->name }}" />
+                            <img src="{{ asset('assets/images/icon/bsi-logo.png') }}" alt="{{ Auth::user()->name }}" />
                         </div>
                         <div class="content">
                             <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
@@ -77,7 +87,7 @@ $route = Route::currentRouteName();
                             <div class="info clearfix">
                                 <div class="image">
                                     <a href="{{ route('dashboard.index') }}">
-                                        <img src="{{ asset('assets/images/icon/avatar.jpeg') }}"
+                                        <img src="{{ asset('assets/images/icon/bsi-logo.png') }}"
                                             alt="{{ Auth::user()->name }}" />
                                     </a>
                                 </div>
@@ -161,7 +171,7 @@ $route = Route::currentRouteName();
         <div class="account-wrap">
             <div class="account-item account-item--style2 clearfix js-item-menu">
                 <div class="image">
-                    <img src="{{ asset('assets/images/icon/avatar.jpeg') }}" alt="{{ Auth::user()->name }}" />
+                    <img src="{{ asset('assets/images/icon/bsi-logo.png') }}" alt="{{ Auth::user()->name }}" />
                 </div>
                 <div class="content">
                     <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
@@ -170,7 +180,7 @@ $route = Route::currentRouteName();
                     <div class="info clearfix">
                         <div class="image">
                             <a href="{{ route('dashboard.index') }}">
-                                <img src="{{ asset('assets/images/icon/avatar.jpeg') }}"
+                                <img src="{{ asset('assets/images/icon/bsi-logo.png') }}"
                                     alt="{{ Auth::user()->name }}" />
                             </a>
                         </div>

@@ -10,12 +10,6 @@ use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('role:administrator');
-    }
-
     public function index()
     {
         return view('user.index');

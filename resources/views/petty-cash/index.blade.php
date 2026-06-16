@@ -135,5 +135,44 @@
                 }
             });
         });
+
+        $(document).on('click', '.btn-approve', function () {
+
+            let id = $(this).data('id');
+
+            Swal.fire({
+                title: 'Yakin mau approve?',
+                text: 'Pastikan semua data sudah benar sebelum approve!',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#28a745',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Ya, approve',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (!result.isConfirmed) {
+                    return;
+                } else{
+                    $.ajax({
+                        url: '/petty-cash/' + id + '/approve',
+                        type: 'POST',
+                        data: {
+                            _token: $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (res) {
+                            if (res.success) {
+                                Swal.fire('Berhasil!', res.message, 'success');
+                                $('.table-data2').DataTable().ajax.reload();
+                            }else {
+                                Swal.fire('Error!', res.message, 'error');
+                            }
+                        },
+                        error: function () {
+                            Swal.fire('Error!', 'Gagal approve data', 'error');
+                        }
+                    });
+                }
+            });
+        });
     </script>
 @endpush

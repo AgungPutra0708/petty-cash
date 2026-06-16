@@ -26,17 +26,19 @@ class BilyetController extends Controller
             })
             ->addColumn('user', fn($row) => $row->user->name ?? '-')
             ->addColumn('action', function ($row) {
-                return '
-                <div class="table-data-feature">
-                    <a href="' . route('bilyet.edit', $row->id) . '" class="item" title="Edit">
-                        <i class="zmdi zmdi-edit"></i>
-                    </a>
+                if (Auth::user()->isCS() || Auth::user()->isAdmin()) {
+                    return '
+                        <div class="table-data-feature">
+                            <a href="' . route('bilyet.edit', $row->id) . '" class="item" title="Edit">
+                                <i class="zmdi zmdi-edit"></i>
+                            </a>
 
-                    <button class="item btn-delete" data-id="' . $row->id . '" title="Delete">
-                        <i class="zmdi zmdi-delete"></i>
-                    </button>
-                </div>
-                ';
+                            <button class="item btn-delete" data-id="' . $row->id . '" title="Delete">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button>
+                        </div>
+                    ';
+                }
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -55,7 +57,6 @@ class BilyetController extends Controller
             'nama_bank' => 'required|string|max:255',
             'jumlah' => 'required|numeric',
             'tanggal_terbit' => 'required|date',
-            'tanggal_jatuh_tempo' => 'required|date|after_or_equal:tanggal_terbit',
             'keterangan' => 'nullable|string',
         ]);
 
@@ -65,7 +66,6 @@ class BilyetController extends Controller
             'nama_bank' => $request->nama_bank,
             'jumlah' => $request->jumlah,
             'tanggal_terbit' => $request->tanggal_terbit,
-            'tanggal_jatuh_tempo' => $request->tanggal_jatuh_tempo,
             'keterangan' => $request->keterangan,
             'user_id' => Auth::id(),
         ]);
@@ -90,7 +90,6 @@ class BilyetController extends Controller
             'nama_bank' => 'required|string|max:255',
             'jumlah' => 'required|numeric',
             'tanggal_terbit' => 'required|date',
-            'tanggal_jatuh_tempo' => 'required|date|after_or_equal:tanggal_terbit',
             'keterangan' => 'nullable|string',
         ]);
 
@@ -100,7 +99,6 @@ class BilyetController extends Controller
             'nama_bank' => $request->nama_bank,
             'jumlah' => $request->jumlah,
             'tanggal_terbit' => $request->tanggal_terbit,
-            'tanggal_jatuh_tempo' => $request->tanggal_jatuh_tempo,
             'keterangan' => $request->keterangan,
         ]);
 

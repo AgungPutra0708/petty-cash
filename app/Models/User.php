@@ -86,17 +86,26 @@ class User extends Authenticatable
     /**
      * Check if user is maker (CS Bilyet & Teller Kas)
      */
-    public function isMaker(): bool
+    public function isCS(): bool
     {
-        return $this->hasRole('maker');
+        return $this->hasRole('cs');
+    }
+    public function isTeller(): bool
+    {
+        return $this->hasRole('teller');
     }
 
     /**
      * Check if user is checker
      */
-    public function isChecker(): bool
+    public function isCheckerCS(): bool
     {
-        return $this->hasRole('checker_approval');
+        return $this->hasRole('checker_cs');
+    }
+
+    public function isCheckerTeller(): bool
+    {
+        return $this->hasRole('checker_teller');
     }
 
     /**

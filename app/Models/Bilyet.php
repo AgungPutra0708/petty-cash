@@ -11,7 +11,6 @@ class Bilyet extends Model
         'nama_bank',
         'jumlah',
         'tanggal_terbit',
-        'tanggal_jatuh_tempo',
         'keterangan',
         'user_id',
         'customer_id',

@@ -20,7 +20,7 @@
                         <!-- DATA TABLE -->
                         <div class="table-data__tool" style="float: right;">
                             <div class="table-data__tool-right">
-                                <a class="au-btn au-btn-icon au-btn--pink-pastel au-btn--small"
+                                <a class="au-btn au-btn-icon au-btn--tosca au-btn--small"
                                     href="{{ route('customer.create') }}">
                                     <i class="zmdi zmdi-plus"></i>add customer</a>
                             </div>

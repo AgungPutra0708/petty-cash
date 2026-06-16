@@ -155,11 +155,23 @@
 
                                         {{-- Petty Cash --}}
                                         @if (str_starts_with($route, 'petty-cash'))
-                                            <li class="list-inline-item seprate"><span>/</span></li>
+                                              <li class="list-inline-item seprate"><span>/</span></li>
                                             <li class="list-inline-item">
                                                 <a href="{{ route('petty-cash.index') }}">Petty Cash</a>
                                             </li>
                                             @if (!in_array($route, ['petty-cash.index']))
+                                                <li class="list-inline-item seprate"><span>/</span></li>
+                                                <li class="list-inline-item active">@yield('title')</li>
+                                            @endif
+                                        @endif
+                                        
+                                        {{-- Manajemen User --}}
+                                        @if (str_starts_with($route, 'user'))
+                                              <li class="list-inline-item seprate"><span>/</span></li>
+                                            <li class="list-inline-item">
+                                                <a href="{{ route('user.index') }}">Manajemen User</a>
+                                            </li>
+                                            @if (!in_array($route, ['user.index']))
                                                 <li class="list-inline-item seprate"><span>/</span></li>
                                                 <li class="list-inline-item active">@yield('title')</li>
                                             @endif

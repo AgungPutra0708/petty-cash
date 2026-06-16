@@ -17,14 +17,16 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- DATA TABLE -->
-                        <div class="table-data__tool" style="float: right;">
-                            <div class="table-data__tool-right">
-                                <a class="au-btn au-btn-icon au-btn--pink-pastel au-btn--small"
+                        @if(Auth::user()->isCs() || Auth::user()->isAdmin())
+                            <div class="table-data__tool" style="float: right;">
+                                <div class="table-data__tool-right">
+                                    <a class="au-btn au-btn-icon au-btn--tosca au-btn--small"
                                     href="{{ route('bilyet.create') }}">
                                     <i class="zmdi zmdi-plus"></i>add bilyet</a>
+                                </div>
                             </div>
-                        </div>
+                        @endif
+                        <!-- DATA TABLE -->
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2">
                                 <thead>
@@ -34,7 +36,6 @@
                                         <th>Nama Bank</th>
                                         <th>Jumlah</th>
                                         <th>Tgl Terbit</th>
-                                        <th>Tgl Jatuh Tempo</th>
                                         <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -79,10 +80,6 @@
                     {
                         data: 'tanggal_terbit',
                         name: 'tanggal_terbit'
-                    },
-                    {
-                        data: 'tanggal_jatuh_tempo',
-                        name: 'tanggal_jatuh_tempo'
                     },
                     {
                         data: 'keterangan',

@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bilyet;
 use App\Models\Stock;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 class StockController extends Controller

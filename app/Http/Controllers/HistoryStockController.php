@@ -91,25 +91,23 @@ class HistoryStockController extends Controller
             ->addColumn('action', function ($row) {
                 $actions = '<div class="table-data-feature">';
                 
-                if ($row->status == 'draft' && (Auth::user()->isMaker() || Auth::user()->isAdmin())) {
+                if ($row->status == 'draft' && (Auth::user()->isCS() || Auth::user()->isAdmin())) {
                     $actions .= '<a href="' . route('pemasukan.edit', $row->id) . '" class="item" title="Edit">
                         <i class="zmdi zmdi-edit"></i>
                     </a>';
-                }
-                
-                if ($row->status == 'draft' && (Auth::user()->isMaker() || Auth::user()->isAdmin())) {
+                    
                     $actions .= '<button class="item btn-delete" data-id="' . $row->id . '" title="Delete">
                         <i class="zmdi zmdi-delete"></i>
                     </button>';
                 }
                 
-                if ($row->status == 'draft' && (Auth::user()->isMaker() || Auth::user()->isAdmin())) {
+                if ($row->status == 'draft' && (Auth::user()->isCheckerCS() || Auth::user()->isAdmin())) {
                     $actions .= '<button class="item btn-submit-approval" data-id="' . $row->id . '" title="Submit untuk Approval">
                         <i class="zmdi zmdi-check"></i>
                     </button>';
                 }
                 
-                if ($row->status == 'pending_approval' && (Auth::user()->isChecker() || Auth::user()->isApprover() || Auth::user()->isAdmin())) {
+                if ($row->status == 'pending_approval' && (Auth::user()->isApprover() || Auth::user()->isApprover() || Auth::user()->isAdmin())) {
                     $actions .= '<button class="item btn-approve" data-id="' . $row->id . '" title="Approve" style="color: green;">
                         <i class="zmdi zmdi-check-circle"></i>
                     </button>';
@@ -152,25 +150,23 @@ class HistoryStockController extends Controller
             ->addColumn('action', function ($row) {
                 $actions = '<div class="table-data-feature">';
                 
-                if ($row->status == 'draft' && (Auth::user()->isMaker() || Auth::user()->isAdmin())) {
+                if ($row->status == 'draft' && (Auth::user()->isCS() || Auth::user()->isAdmin())) {
                     $actions .= '<a href="' . route('pengeluaran.edit', $row->id) . '" class="item" title="Edit">
                         <i class="zmdi zmdi-edit"></i>
                     </a>';
-                }
                 
-                if ($row->status == 'draft' && (Auth::user()->isMaker() || Auth::user()->isAdmin())) {
                     $actions .= '<button class="item btn-delete" data-id="' . $row->id . '" title="Delete">
                         <i class="zmdi zmdi-delete"></i>
                     </button>';
                 }
                 
-                if ($row->status == 'draft' && (Auth::user()->isMaker() || Auth::user()->isAdmin())) {
+                if ($row->status == 'draft' && (Auth::user()->isCheckerCS() || Auth::user()->isAdmin())) {
                     $actions .= '<button class="item btn-submit-approval" data-id="' . $row->id . '" title="Submit untuk Approval">
                         <i class="zmdi zmdi-check"></i>
                     </button>';
                 }
                 
-                if ($row->status == 'pending_approval' && (Auth::user()->isChecker() || Auth::user()->isApprover() || Auth::user()->isAdmin())) {
+                if ($row->status == 'pending_approval' && (Auth::user()->isApprover() || Auth::user()->isApprover() || Auth::user()->isAdmin())) {
                     $actions .= '<button class="item btn-approve" data-id="' . $row->id . '" title="Approve" style="color: green;">
                         <i class="zmdi zmdi-check-circle"></i>
                     </button>';

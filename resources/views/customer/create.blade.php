@@ -65,11 +65,11 @@
                                     </div>
 
                                     <div class="form-actions form-group">
-                                        <button type="submit" class="btn au-btn--pink-pastel btn-sm">
+                                        <button type="submit" class="au-btn au-btn--tosca">
                                             <i class="fa fa-save"></i> Simpan
                                         </button>
-                                        <a href="{{ route('customer.index') }}" class="btn btn-secondary btn-sm">
-                                            Kembali
+                                        <a href="{{ route('customer.index') }}" class="au-btn au-btn--secondary">
+                                            <i class="fa fa-arrow-left"></i> Kembali
                                         </a>
                                     </div>
 

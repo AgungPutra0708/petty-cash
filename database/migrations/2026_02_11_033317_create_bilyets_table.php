@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('nama_bank');
             $table->decimal('jumlah', 15, 2);
             $table->date('tanggal_terbit');
-            $table->date('tanggal_jatuh_tempo');
             $table->text('keterangan')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('customer_id')->constrained()->onDelete('cascade');

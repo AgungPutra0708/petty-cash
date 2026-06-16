@@ -84,7 +84,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pengeluaran/{historyStock}/reject', [HistoryStockController::class, 'reject'])->name('pengeluaran.reject');
 
     // User Management Routes (Admin Only)
-    Route::middleware(['role:administrator'])->group(function () {
+    Route::middleware(['auth'])->group(function () {
         Route::get('/user', [UserController::class, 'index'])->name('user.index');
         Route::get('/user/get-data', [UserController::class, 'getDataUser'])->name('user.data');
         Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
@@ -99,11 +99,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/petty-cash/get-data', [PettyCashController::class, 'getDataPettyCash'])->name('petty-cash.data');
     Route::get('/petty-cash/create', [PettyCashController::class, 'create'])->name('petty-cash.create');
     Route::post('/petty-cash', [PettyCashController::class, 'store'])->name('petty-cash.store');
+    Route::get('/petty-cash/report', [PettyCashController::class, 'report'])->name('petty-cash.report');
+    Route::get('/petty-cash/report/data', [PettyCashController::class, 'reportData'])->name('petty-cash.report.data');
+    Route::get('/petty-cash/report/pdf/{id}', [PettyCashController::class, 'exportPdfSingle'])->name('petty-cash.report.pdf.single');
+    Route::get('/petty-cash/report/pdf', [PettyCashController::class, 'exportPdfRecap'])->name('petty-cash.report.pdf');
+    Route::get('/petty-cash/report/excel', [PettyCashController::class, 'exportExcel'])->name('petty-cash.report.excel');
     Route::get('/petty-cash/{pettyCash}', [PettyCashController::class, 'show'])->name('petty-cash.show');
     Route::get('/petty-cash/{pettyCash}/edit', [PettyCashController::class, 'edit'])->name('petty-cash.edit');
     Route::put('/petty-cash/{pettyCash}', [PettyCashController::class, 'update'])->name('petty-cash.update');
     Route::delete('/petty-cash/{pettyCash}', [PettyCashController::class, 'destroy'])->name('petty-cash.destroy');
-    Route::get('/petty-cash/report', [PettyCashController::class, 'report'])->name('petty-cash.report');
+    Route::post('/petty-cash/{pettyCash}/approve', [PettyCashController::class, 'approve'])->name('petty-cash.approve');
     
     // Petty Cash Detail Routes
     Route::post('/petty-cash/{pettyCash}/detail', [PettyCashController::class, 'storeDetail'])->name('petty-cash-detail.store');

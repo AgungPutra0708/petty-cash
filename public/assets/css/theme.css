@@ -33,7 +33,6 @@ button {
 img {
     max-width: 100%;
     height: auto;
-    margin-top: -7px;
 }
 
 p {
@@ -442,6 +441,18 @@ section {
 
 .au-btn--blue {
     background: #4272d7;
+}
+
+.au-btn--blue::hover {
+    background: #3868cd;
+}
+
+.au-btn--yellow {
+    background: #ffc107;
+}
+
+.au-btn--yellow::hover {
+    background: #e0a800;
 }
 
 .au-btn--green {
@@ -14719,4 +14730,8 @@ section {
 
 .custom-select .custom-select-sm{
     width: 50px!important;
+}
+
+.image {
+    border: 3px solid white;
 }

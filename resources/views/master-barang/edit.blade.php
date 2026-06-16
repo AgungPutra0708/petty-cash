@@ -34,11 +34,11 @@
                                         <textarea name="description" rows="3" class="form-control">{{ old('description', $barang->description) }}</textarea>
                                     </div>
 
-                                    <button class="btn au-btn--pink-pastel btn-sm" type="submit">
+                                    <button class="au-btn au-btn--tosca" type="submit">
                                         <i class="fa fa-save"></i> Update
                                     </button>
-                                    <a href="{{ route('master-barang.index') }}" class="btn btn-secondary btn-sm">
-                                        Kembali
+                                    <a href="{{ route('master-barang.index') }}" class="au-btn au-btn--secondary">
+                                        <i class="fa fa-arrow-left"></i> Kembali
                                     </a>
                                 </form>
                             </div>

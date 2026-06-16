@@ -2,27 +2,25 @@
 @section('title', 'Edit Pengeluaran Petty Cash')
 @section('content')
     <div class="main-content">
-        <div class="page-content--top">
-            <div class="level level-breadcrumb">
-                <div class="level-left">
-                    <h2 class="heading heading-2">
-                        <span class="heading-icon">
-                            <i class="zmdi zmdi-money"></i>
-                        </span>
-                        <span class="m-l-20">Edit Pengeluaran Petty Cash</span>
-                    </h2>
+        <section class="p-t-10 p-l-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title-5 m-b-35">Edit Pengeluaran Petty Cash</h3>
+                        <hr class="line-seprate">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="section__content section__content--p30">
+        </section>
+        <div class="section__content section__content--p30 p-t-50 p-b-50">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-9">
-                        <div class="au-card m-b-20">
-                            <div class="au-card-title">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
                                 <h3 class="title-3">Form Edit Pengeluaran</h3>
                             </div>
-                            <div class="au-card-inner">
+                            <div class="card-body">
                                 <form action="{{ route('petty-cash-detail.update', $detail->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
@@ -64,10 +62,10 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-tosca">
+                                        <button type="submit" class="au-btn au-btn--tosca">
                                             <i class="fa fa-save"></i> Update
                                         </button>
-                                        <a href="{{ route('petty-cash.show', $detail->petty_cash_id) }}" class="btn btn-secondary">
+                                        <a href="{{ route('petty-cash.show', $detail->petty_cash_id) }}" class="au-btn au-btn--secondary">
                                             <i class="fa fa-arrow-left"></i> Kembali
                                         </a>
                                     </div>

@@ -86,16 +86,6 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Tanggal Jatuh Tempo</label>
-                                        <input type="date" name="tanggal_jatuh_tempo"
-                                            class="form-control @error('tanggal_jatuh_tempo') is-invalid @enderror"
-                                            value="{{ old('tanggal_jatuh_tempo', $bilyet->tanggal_jatuh_tempo) }}">
-                                        @error('tanggal_jatuh_tempo')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group">
                                         <label>Keterangan</label>
                                         <textarea name="keterangan" rows="3" class="form-control @error('keterangan') is-invalid @enderror">{{ old('keterangan', $bilyet->keterangan) }}</textarea>
                                         @error('keterangan')
@@ -104,11 +94,11 @@
                                     </div>
 
                                     <div class="form-actions form-group">
-                                        <button type="submit" class="btn au-btn--pink-pastel btn-sm">
+                                        <button type="submit" class="au-btn au-btn--tosca">
                                             <i class="fa fa-save"></i> Update
                                         </button>
-                                        <a href="{{ route('bilyet.index') }}" class="btn btn-secondary btn-sm">
-                                            Kembali
+                                        <a href="{{ route('bilyet.index') }}" class="au-btn au-btn--secondary">
+                                            <i class="fa fa-arrow-left"></i> Kembali
                                         </a>
                                     </div>
                                 </form>

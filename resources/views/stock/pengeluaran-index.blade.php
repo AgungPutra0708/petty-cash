@@ -9,7 +9,7 @@
                         <h3 class="title-5 m-b-35">Pengeluaran Barang</h3>
                         <div class="table-data__tool" style="float: right;">
                             <div class="table-data__tool-right">
-                                @if(Auth::user()->isMaker() || Auth::user()->isAdmin())
+                                @if(Auth::user()->isCS() || Auth::user()->isAdmin())
                                     <a class="au-btn au-btn-icon au-btn--tosca au-btn--small"
                                         href="{{ route('pengeluaran.create') }}">
                                         <i class="zmdi zmdi-plus"></i>Tambah Pengeluaran</a>

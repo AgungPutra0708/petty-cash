@@ -54,8 +54,9 @@
                                     <div class="form-group">
                                         <label>Nama Bank</label>
                                         <input type="text" name="nama_bank"
+                                            readonly
                                             class="form-control @error('nama_bank') is-invalid @enderror"
-                                            value="{{ old('nama_bank') }}">
+                                            value="{{ old('nama_bank') ?? 'BANK SYARIAH INDONESIA' }}">
                                     </div>
 
                                     <div class="form-group">
@@ -73,23 +74,16 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Tanggal Jatuh Tempo</label>
-                                        <input type="date" name="tanggal_jatuh_tempo"
-                                            class="form-control @error('tanggal_jatuh_tempo') is-invalid @enderror"
-                                            value="{{ old('tanggal_jatuh_tempo') }}">
-                                    </div>
-
-                                    <div class="form-group">
                                         <label>Keterangan</label>
                                         <textarea name="keterangan" rows="3" class="form-control">{{ old('keterangan') }}</textarea>
                                     </div>
 
                                     <div class="form-actions form-group">
-                                        <button type="submit" class="btn au-btn--pink-pastel btn-sm">
+                                        <button type="submit" class="au-btn au-btn--tosca">
                                             <i class="fa fa-save"></i> Simpan
                                         </button>
-                                        <a href="{{ route('bilyet.index') }}" class="btn btn-secondary btn-sm">
-                                            Kembali
+                                        <a href="{{ route('bilyet.index') }}" class="au-btn au-btn--secondary">
+                                            <i class="fa fa-arrow-left"></i> Kembali
                                         </a>
                                     </div>
 

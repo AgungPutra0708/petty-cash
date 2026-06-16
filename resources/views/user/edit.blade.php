@@ -2,27 +2,25 @@
 @section('title', 'Edit User')
 @section('content')
     <div class="main-content">
-        <div class="page-content--top">
-            <div class="level level-breadcrumb">
-                <div class="level-left">
-                    <h2 class="heading heading-2">
-                        <span class="heading-icon">
-                            <i class="zmdi zmdi-account-box"></i>
-                        </span>
-                        <span class="m-l-20">Edit User: {{ $user->name }}</span>
-                    </h2>
+        <section class="p-t-10 p-l-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title-5 m-b-35">Edit User: {{ $user->name }}</h3>
+                        <hr class="line-seprate">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="section__content section__content--p30">
+        </section>
+        <div class="section__content section__content--p30 p-t-50 p-b-50">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-9">
-                        <div class="au-card m-b-20">
-                            <div class="au-card-title">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
                                 <h3 class="title-3">Form Edit User</h3>
                             </div>
-                            <div class="au-card-inner">
+                            <div class="card-body">
                                 <form action="{{ route('user.update', $user->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')

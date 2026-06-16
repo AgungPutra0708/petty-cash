@@ -2,27 +2,25 @@
 @section('title', 'Detail Petty Cash')
 @section('content')
     <div class="main-content">
-        <div class="page-content--top">
-            <div class="level level-breadcrumb">
-                <div class="level-left">
-                    <h2 class="heading heading-2">
-                        <span class="heading-icon">
-                            <i class="zmdi zmdi-money"></i>
-                        </span>
-                        <span class="m-l-20">Detail Petty Cash: {{ $pettyCash->nomor_petty_cash }}</span>
-                    </h2>
-                </div>
-            </div>
-        </div>
-        <div class="section__content section__content--p30">
-            <div class="container-fluid">
+        <section class="p-t-10 p-l-10">
+            <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="au-card m-b-20">
-                            <div class="au-card-title">
+                        <h3 class="title-5 m-b-35">Detail Petty Cash: {{ $pettyCash->nomor_petty_cash }}</h3>
+                        <hr class="line-seprate">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section__content section__content--p30 p-t-50 p-b-50">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
                                 <h3 class="title-3">Informasi Petty Cash</h3>
                             </div>
-                            <div class="au-card-inner">
+                            <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="info-box">
@@ -90,10 +88,10 @@
                             </div>
                         </div>
 
-                        <div class="au-card m-b-20">
-                            <div class="au-card-title">
+                        <div class="card m-b-20">
+                            <div class="card-header">
                                 <h3 class="title-3">Riwayat Pengeluaran</h3>
-                                @if($pettyCash->status == 'draft')
+                                @if($pettyCash->status == 'approved')
                                     <div style="float: right;">
                                         <button class="au-btn au-btn-icon au-btn--tosca au-btn--small" data-toggle="modal" data-target="#addDetailModal">
                                             <i class="zmdi zmdi-plus"></i> Tambah Pengeluaran
@@ -101,7 +99,7 @@
                                     </div>
                                 @endif
                             </div>
-                            <div class="au-card-inner">
+                            <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead class="table-header-tosca">
@@ -158,17 +156,17 @@
                             </div>
                         </div>
 
-                        <div class="au-card m-b-20">
-                            <div class="au-card-title">
+                        <div class="card m-b-20">
+                            <div class="card-header">
                                 <h3 class="title-3">Aksi</h3>
                             </div>
-                            <div class="au-card-inner">
+                            <div class="card-body">
                                 @if($pettyCash->status == 'draft')
-                                    <a href="{{ route('petty-cash.edit', $pettyCash->id) }}" class="btn btn-tosca">
+                                    <a href="{{ route('petty-cash.edit', $pettyCash->id) }}" class="au-btn au-btn--tosca">
                                         <i class="fa fa-edit"></i> Edit
                                     </a>
                                 @endif
-                                <a href="{{ route('petty-cash.index') }}" class="btn btn-secondary">
+                                <a href="{{ route('petty-cash.index') }}" class="au-btn au-btn--secondary">
                                     <i class="fa fa-arrow-left"></i> Kembali
                                 </a>
                             </div>
@@ -210,8 +208,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-tosca">Simpan</button>
+                        <button type="button" class="au-btn au-btn--secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="au-btn au-btn--tosca">Simpan</button>
                     </div>
                 </form>
             </div>
